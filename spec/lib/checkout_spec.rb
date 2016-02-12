@@ -36,7 +36,7 @@ describe Checkout do
         end
 
         it 'returns £66.78' do
-           expect(subject.total.to_f).to eq 66.78
+           expect(subject.total).to eq 66.78
         end
       end
 
@@ -49,7 +49,7 @@ describe Checkout do
         end
 
         it 'returns £36.95' do
-          expect(subject.total.to_f).to eq 36.95
+          expect(subject.total).to eq 36.95
         end
       end
 
@@ -62,7 +62,7 @@ describe Checkout do
         end
 
         it 'returns £73.76' do
-          expect(subject.total.to_f).to eq 73.76
+          expect(subject.total).to eq 73.76
         end
       end
 
