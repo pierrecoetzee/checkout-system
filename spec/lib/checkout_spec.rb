@@ -28,12 +28,12 @@ describe Checkout do
       let(:over_sixty_rule){ OverSixtyPound.new }
       let(:lavender_heart_rule){ LavenderHeart.new }
 
+      before{ scan_basket basket }
+
       context '001,002,003 skus are scanned' do
         subject do
            described_class.new rules: [over_sixty_rule]
         end
-
-        before{ scan_basket basket }
 
         it 'returns £66.78' do
            expect(subject.total.to_f).to eq 66.78
@@ -43,8 +43,6 @@ describe Checkout do
       context '001,003,001 skus are scanned' do
 
         let(:basket){ [lavender_heart, tshirt, lavender_heart] }
-
-        before{ scan_basket basket }
 
         subject do
            described_class.new rules: [lavender_heart_rule]
@@ -59,8 +57,6 @@ describe Checkout do
 
         let(:basket){ [lavender_heart, cufflinks, lavender_heart, tshirt] }
 
-        before{ scan_basket basket }
-
         subject do
            described_class.new rules: [lavender_heart_rule, over_sixty_rule]
         end
@@ -72,7 +68,6 @@ describe Checkout do
 
       describe 'checkout without no rules' do
          let(:basket){ [lavender_heart, cufflinks, tshirt] }
-         before{ scan_basket basket }
 
          subject do
             described_class.new rules: []
