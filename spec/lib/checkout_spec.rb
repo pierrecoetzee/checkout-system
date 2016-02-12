@@ -33,9 +33,7 @@ describe Checkout do
            described_class.new rules: [over_sixty_rule]
         end
 
-        before do
-           basket.each{|item| subject.scan item }
-        end
+        before{ scan_basket basket }
 
         it 'returns £66.78' do
            expect(subject.total.to_f).to eq 66.78
