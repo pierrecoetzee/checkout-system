@@ -4,10 +4,7 @@ class OverSixtyPound < Base
 
   def execute total
 
-     if total > 60
-       @applied = true
-       return big_decimal(total * 0.90 ).to_f
-     end
+     return big_decimal(total * 0.90 ).to_f if total > 60
 
      total.to_f
   end

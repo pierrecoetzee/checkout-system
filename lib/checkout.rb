@@ -10,6 +10,10 @@ class Checkout
     @items << item
   end
 
+  #Float value gets returned - add a money symbol in any view
+  #I think its clearer to omit the symbol as it would force
+  #returning strings - not floating point values representative of money
+
   def total
     return gross_total if rules.empty?
 
